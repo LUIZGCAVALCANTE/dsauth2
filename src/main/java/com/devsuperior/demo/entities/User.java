@@ -20,7 +20,8 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String email;
     private String password;
-
+    private String phone;
+    private LocalDate birthDate;
 
     @ManyToMany
     @JoinTable(name = "tb_user_role",
@@ -40,6 +41,24 @@ public class User implements UserDetails {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.phone= phone;
+        this.birthDate = birthDate;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Long getId() {
